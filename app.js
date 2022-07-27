@@ -20,40 +20,40 @@ let middleCount = 0;
 let pantsCount = 0;
 
 headDropdown.addEventListener('change', () => {
-  headEl.style.backgroundImage = `url(./assets/${headDropdown.value}-head.png)`;
-  headCount++;
-  displayStats();
+    headEl.style.backgroundImage = `url(./assets/${headDropdown.value}-head.png)`;
+    headCount++;
+    displayStats();
 });
 
 middleDropdown.addEventListener('change', () => {
-  middleEl.style.backgroundImage = `url(./assets/${middleDropdown.value}-middle.png)`;
-  middleCount++;
-  displayStats();
+    middleEl.style.backgroundImage = `url(./assets/${middleDropdown.value}-middle.png)`;
+    middleCount++;
+    displayStats();
 });
 
 bottomDropdown.addEventListener('change', () => {
-  bottomEl.style.backgroundImage = `url(./assets/${bottomDropdown.value}-pants.png)`;
-  pantsCount++;
-  displayStats();
+    bottomEl.style.backgroundImage = `url(./assets/${bottomDropdown.value}-pants.png)`;
+    pantsCount++;
+    displayStats();
 });
 
 catchphraseButton.addEventListener('click', () => {
-  console.log(catchphraseInput.value);
+    console.log(catchphraseInput.value);
 
-  displayCatchphrases();
-  displayStats();
+    displayCatchphrases();
+    displayStats();
 });
 
 function displayStats() {
-  reportEl.textContent = `you have change the head ${headCount} times, you have changed the middle ${middleCount} times and have changed the pants ${pantsCount} times`;
+    reportEl.textContent = `you have change the head ${headCount} times, you have changed the middle ${middleCount} times and have changed the pants ${pantsCount} times`;
 }
 
 function displayCatchphrases() {
-  for (let catchphrase of catchphrases) {
-    const pTag = document.createElement('p');
-    pTag.classList.add('catchphrase');
-    catchphrasesEl.append(pTag);
-    pTag.textContent = catchphraseInput.value;
-    catchphraseInput.value = '';
-  }
+    for (let catchphrase of catchphrases) {
+        const pTag = document.createElement('p');
+        pTag.classList.add('catchphrase');
+        catchphrasesEl.append(pTag);
+        pTag.textContent = catchphraseInput.value;
+        catchphraseInput.value = '';
+    }
 }
