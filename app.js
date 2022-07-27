@@ -14,6 +14,7 @@ const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
 
 const catchphrases = [''];
+
 let headCount = 0;
 let middleCount = 0;
 let pantsCount = 0;
@@ -24,17 +25,24 @@ let pantsCount = 0;
 headDropdown.addEventListener('change', () => {
   // get the value of the head dropdown
   // increment the head change count state
-  headEl.style.backgroundImage = `url(./assets/${headDropdown.value}-head.png)`;
+    headEl.style.backgroundImage = `url(./assets/${headDropdown.value}-head.png)`;
+    headCount++;
+    displayStats();
+  
   // update the stats to show the new count (call displayStats() to do this work)
 });
 
 middleDropdown.addEventListener('change', () => {
-  middleEl.style.backgroundImage = `url(./assets/${middleDropdown.value}-middle.png)`;
+    middleEl.style.backgroundImage = `url(./assets/${middleDropdown.value}-middle.png)`;
+    middleCount++;
+    displayStats();
   // update the stats to show the new count (call displayStats() to do this work)
 });
 
 bottomDropdown.addEventListener('change', () => {
-  bottomEl.style.backgroundImage = `url(./assets/${bottomDropdown.value}-pants.png)`;
+    bottomEl.style.backgroundImage = `url(./assets/${bottomDropdown.value}-pants.png)`;
+    pantsCount++;
+    displayStats();
   // update the stats to show the new count (call displayStats() to do this work)
 });
 
@@ -47,13 +55,14 @@ catchphraseButton.addEventListener('click', () => {
   // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
     displayCatchphrases();
     displayStats();
+    
 });
 
 function displayStats() {
   // text content of the reportEl to tell the user how many times they've changed each piece of the state
     
     reportEl.textContent =
-      'you have change the head ${headCount} times, you have changed the middle ${middleCount} times and have changed the pants ${pantsCount} times';
+        `you have change the head ${headCount} times, you have changed the middle ${middleCount} times and have changed the pants ${pantsCount} times`;
 
 }
 
